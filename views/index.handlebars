@@ -1,0 +1,21 @@
+<form action="/parcel" method="GET">
+    <label for="trackingTF">Tracking Number</label>
+    <input type="text" name="trackingNumber" placeholder="Enter tracking number" />
+    
+    <input type="submit" value="Track"/>
+    <input type="reset" value="Reset"/>
+</form>
+
+{{! Display recent Tracking numbers }}
+{{#if numbers}}
+    <div id="recents-container">
+        <h3>Recent Numbers:</h3>
+        <ul>
+            {{#each numbers}}
+                <li>
+                    <a href="/parcel?trackingNumber={{this}}">{{this}}</a>
+                </li>  
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}
