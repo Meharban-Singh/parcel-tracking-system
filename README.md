@@ -1,10 +1,10 @@
 # Parcel Tracking System
 
-Challenge#1 @University of Winnipeg Code Force.
+Challenge#1 @University of Winnipeg [Code Force](www.uwcodeforce.ca){:target="_blank"}.
 
 ### Challenge Details
 
-[Challenge Question](https://uwcodeforce.ca/challenges/Challenge1.pdf)
+[Challenge Question](https://uwcodeforce.ca/challenges/Challenge1.pdf){:target="_blank"}
 
 Team:
 
@@ -15,7 +15,7 @@ Team:
 
 ### Set up Instructions
 
-1. If not installed, download and install [Node.js](https://nodejs.org/en/)
+1. If not installed, download and install [Node.js](https://nodejs.org/en/){:target="_blank"}
 2. In the desired directory, clone this repo: `git clone git@github.com:Meharban-Singh/parcel-tracking-system.git`
 3. Change directory into the cloned repo: `cd ./parcel-tracking-system`
 4. Install all the dependencies: `npm install`
