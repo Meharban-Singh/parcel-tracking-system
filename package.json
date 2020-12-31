@@ -1,0 +1,23 @@
+{
+  "name": "parcel-tracking-system",
+  "version": "1.0.0",
+  "description": "Code Force @UW Challenge 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meharban-Singh/parcel-tracking-system.git"
+  },
+  "author": "Rythm, Kanwal, Karan, Meharban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meharban-Singh/parcel-tracking-system/issues"
+  },
+  "homepage": "https://github.com/Meharban-Singh/parcel-tracking-system#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
