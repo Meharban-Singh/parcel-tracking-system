@@ -32,7 +32,10 @@ app.get("/parcel", (req, res) => {
   if (!req.query.trackingNumber)
     return res
       .status(404)
-      .render("error", { message: "No such tracking number" });
+      .render("error", {
+        code: "404",
+        message: "No tracking number provided!",
+      });
 
   // Add the new number to the cookies
   let numbers = req.cookies.numbers || [];
