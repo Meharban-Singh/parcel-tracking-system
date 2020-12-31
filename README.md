@@ -1,6 +1,6 @@
 # Parcel Tracking System
 
-Challenge#1 @University of Winnipeg <a href="www.uwcodeforce.ca" target="_blank">Code Force</a>.
+Challenge#1 @University of Winnipeg <a href="https://www.uwcodeforce.ca" target="_blank">Code Force</a>.
 
 ### Challenge Details
 
