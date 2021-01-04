@@ -1,4 +1,4 @@
-const { container } = require("googleapis/build/src/apis/container");
+const PROVINCES = [];
 
 /**
  * Validates tracking numbers
@@ -111,9 +111,43 @@ function validatePassword(password) {
   return true;
 }
 
+/**
+ * Validates address
+ *
+ * City should be all letters.
+ * Province code should be one of the 10 province codes in Canada.
+ * Postal Code should be a valid Canadian postal code -> A9A 9A9 OR A9A9A9.
+ *
+ * @param {string} city The city name to be validated
+ * @param {string} province The province CODE to be validated
+ * @param {string} postalCode The postal code to be validated
+ *
+ * @returns {boolean|string} True if valid, reason if invalid
+ */
+function validateAddress(city, province, postalCode) {
+  // Each param should be provided
+  if (!city || !province || !postalCode) return false;
+
+  // City should be letters only
+  if (!city.match(/\S+/g)) return "City name should only have letters";
+
+  // Province check in list of Canadian Provinces
+  if (!PROVINCES.includes(province.toUpperCase()))
+    return "Province should be a valid Canadian Province Code";
+
+  // Postal Code check
+  postalCode = postalCode.toUpperCase();
+
+  if (!postalCode.match(/[A-Z][0-9][A-Z] ?[0-9][A-Z][0-9]/))
+    return "Postal Code should be a valid Canadian postal Code";
+
+  return true;
+}
+
 // Export all the validation functions
 module.exports = {
   validateTrackingNumber,
   validateEmailAddress,
   validatePassword,
+  validateAddress,
 };
