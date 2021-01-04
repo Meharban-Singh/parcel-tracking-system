@@ -8,6 +8,9 @@ const { container } = require("googleapis/build/src/apis/container");
  * @returns {boolean}
  */
 function validateTrackingNumber(number) {
+  // If no parameter provided
+  if (!number) return false;
+
   // input prep
   number = number.trim();
 
@@ -28,6 +31,9 @@ function validateTrackingNumber(number) {
  * @returns {boolean}
  */
 function validateEmailAddress(email) {
+  // If no parameter provided
+  if (!email) return false;
+
   // input prep
   email = email.trim();
 
@@ -48,6 +54,9 @@ function validateEmailAddress(email) {
  * @returns {boolean|string} True if valid, reason if invalid
  */
 function validatePassword(password) {
+  // If no parameter provided
+  if (!password) return false;
+
   //input prep
   password = password.trim();
 
