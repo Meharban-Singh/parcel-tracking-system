@@ -12,6 +12,9 @@ app.set("view engine", "handlebars");
 // Use statc files
 app.use(express.static(__dirname + "/public"));
 
+// Connect to MySQL server
+require("./modules/connection.js");
+
 // Middlewares
 app.use(cookieParser());
 
