@@ -1,4 +1,4 @@
-const PROVINCES = [];
+const PROVINCES = ["AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"];
 
 /**
  * Validates tracking numbers
