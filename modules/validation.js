@@ -19,6 +19,20 @@ function validateTrackingNumber(number) {
   return true;
 }
 
+/**
+ * Validates an email address. Returns true if valid.
+ *
+ * @param {string} email The email addr to be validat
+ * @returns {boolean}
+ */
+function validateEmailAddress(email) {
+  let regex = /\S+@\S+\.\S+/; //string@string.string
+  if (email.match(regex)) return true;
+
+  return false;
+}
+
 module.exports = {
   validateTrackingNumber,
+  validateEmailAddress,
 };
