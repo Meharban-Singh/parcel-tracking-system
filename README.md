@@ -20,3 +20,10 @@ Team:
 3. Change directory into the cloned repo: `cd ./parcel-tracking-system`
 4. Install all the dependencies: `npm install`
 5. Run `npm start` to start the local server.
+6. Create a `.env` file in the project folder with the connection parameters to the remote MySQL server: 
+```
+MYSQL_SERVER_HOST="host name here"
+MYSQL_SERVER_USER="user name here"
+MYSQL_SERVER_PASSWORD="password here"
+MYSQL_SERVER_DB="database name here"
+```
