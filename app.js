@@ -1,4 +1,5 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
 const cookieParser = require("cookie-parser");
 const exphbs = require("express-handlebars");
 
@@ -7,6 +8,9 @@ app.set("PORT", process.env.PORT || 3000);
 // Handlebars engine and extension
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
+
+// Use statc files
+app.use(express.static(__dirname + "/public"));
 
 // Middlewares
 app.use(cookieParser());
