@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { validateTrackingNumber } = require("../modules/validation");
 
 // GET parcel information
 router.get("/parcel", (req, res) => {
@@ -7,6 +8,13 @@ router.get("/parcel", (req, res) => {
     return res.status(404).render("error", {
       code: "404",
       message: "No tracking number provided!",
+    });
+
+  // Validation of input
+  if (!validateTrackingNumber(req.query.trackingNumber))
+    return res.status(400).render("error", {
+      code: "400",
+      message: "Invalid tracking number!",
     });
 
   // Add the new number to the cookies

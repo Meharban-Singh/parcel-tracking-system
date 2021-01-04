@@ -2,7 +2,14 @@
 
 <form action="/parcel" method="GET">
     <label for="trackingTF">Tracking Number</label>
-    <input type="text" name="trackingNumber" placeholder="Enter tracking number" />
+    <input 
+        type="text" 
+        name="trackingNumber" 
+        pattern="[A-Za-z0-9]{16} +" 
+        title="Tracking number should be 16 characters long" 
+        placeholder="Enter tracking number" 
+        autofocus
+    />
     
     <input type="submit" value="Track"/>
     <input type="reset" value="Reset"/>
