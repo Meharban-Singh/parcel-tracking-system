@@ -1,9 +1,15 @@
-{{#if code}}
-    <h1>Error: {{code}}</h1>
-{{else}}
-    <h1>An Error Occured</h1>
-{{/if}}
+<link rel="stylesheet" href="css/error.css">
 
-{{#if message}}
-    <h5>{{message}}</h5>
-{{/if}}
+<div class="container-fluid text-center">
+    <img src="images/general_error.png"/>
+
+    {{#if code}}
+        <h1>Error: {{code}}</h1>
+    {{else}}
+        <h1>An Error Occured</h1>
+    {{/if}}
+
+    {{#if message}}
+        <h5>{{message}}</h5>
+    {{/if}}
+</div>
