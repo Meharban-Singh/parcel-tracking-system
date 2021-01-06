@@ -20,6 +20,9 @@ app.use(cookieParser());
 
 // rountes
 app.use(require("./routes/index"));
+app.use(require("./routes/login"));
+app.use(require("./routes/empLogin"));
+app.use(require("./routes/home"))
 app.use(require("./routes/track"));
 app.use(require("./routes/error")); // this MUST be the last middleware so that ir handles all 'other' routes
 
