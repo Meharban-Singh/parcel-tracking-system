@@ -1,6 +1,6 @@
 const router = require("express").Router();
+var connection = require("../modules/connection.js");
 
-import { connection } from "../modules/connection.js";
 
 //login handle
 router.get('/empLogin',(req,res)=>{
@@ -8,16 +8,16 @@ router.get('/empLogin',(req,res)=>{
     var password = req.query.password;
 
     if(username && password){
-       connection.query("SELECT * FROM EMPLOYEE WHERE EMAIL = ? AND PASSWORD = ?", [username, password], function(error, results, fields){
+       connection.query("SELECT * FROM EMPLOYEE WHERE EMAIL = ? AND PASSWORD = ?", [username, password], function(error, results){
             if (results.length > 0) {
                 res.redirect('/home');
             } else {
-            res.send('Incorrect Username and/or Password!');
+            res.send("Incorrect Username and/or Password!");
         }			
         res.end();
     });
     } else {
-    res.send('Please enter Username and Password!');
+    res.send("Please enter Username and Password!");
     res.end();
 }
        }
