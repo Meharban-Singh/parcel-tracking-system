@@ -1,8 +1,27 @@
-<h1>Login Page</h1>
+<h1>Login for existing account</h1>
 <form action="/empLogin" method="POST">
     <label for="username">username</label>
     <input type="text" name="username" placeholder="Enter username here">
+    <br>
     <label for="password">password</label>
     <input type="password" name="password" placeholder="Enter password here">
+    <br>
     <input type="submit" value="Login">
+</form>
+<br>
+<h1>Register for creating new employee account</h1>
+<form action="/register" method="POST">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" placeholder="Enter first name here">
+    <br>
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" placeholder="Enter last name here">
+    <br>
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Enter email here">
+    <br>
+    <label for="pass">Password</label>
+    <input type="password" name="pass" placeholder="Enter password here">
+    <br>
+    <input type="submit" value="Register">
 </form>
