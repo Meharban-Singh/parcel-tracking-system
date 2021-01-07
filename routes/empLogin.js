@@ -32,16 +32,25 @@ router.post("/empLogin", (req, res) => {
     connection.query(
       "SELECT * FROM EMPLOYEE WHERE EMAIL = ? AND PASSWORD = ?",
       [username, password],
-      function (error, results) {
-        if (results.length > 0) {
-          res.redirect("/home");
-        } else {
-          res.send("Incorrect Username and/or Password!");
+      async function (error, results) {
+        if(!results){
+          res.send("Did not find anything!")
         }
-        res.end();
+        else{
+          if(results.length>0)
+          {
+            res.send("hey there, you've logged in!");
+            //res.redirect("/home");
+          }
+          else{
+            res.status(401).render("error", {
+              code: "401",
+              message: "Email and password do not match",
+            })
+          }
+        }
       }
-    );
-  }
-});
-
+ 
+  );
+  }});
 module.exports = router;
