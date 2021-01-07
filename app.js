@@ -9,11 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// app.use(function (req, res) {
-//   res.setHeader('Content-Type', 'text/plain')
-//   res.write('you posted:\n')
-//   res.end(JSON.stringify(req.body, null, 2))
-// })
+
 
 const exphbs = require("express-handlebars");
 
@@ -35,7 +31,7 @@ app.use(bodyParser.json());
 
 // routes
 app.use(require("./routes/index"));
-app.use(require("./routes/login"));
+app.use(require("./routes/loginpage"));
 app.use(require("./routes/empLogin"));
 app.use(require("./routes/home"))
 app.use(require("./routes/admin"));
