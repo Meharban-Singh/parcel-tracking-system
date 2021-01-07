@@ -1,10 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-
-
 const bodyParser = require("body-parser");
-
 const exphbs = require("express-handlebars");
 
 app.set("PORT", process.env.PORT || 3000);
