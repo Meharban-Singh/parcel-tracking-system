@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 // routes
 app.use(require("./routes/index")); // GET /
 app.use(require("./routes/loginpage"));
-app.use(require("./routes/empLogin"));
+app.use(require("./routes/processLogin"));
 app.use(require("./routes/home"));
 app.use(require("./routes/admin"));
 app.use(require("./routes/track")); // GET /parcel
