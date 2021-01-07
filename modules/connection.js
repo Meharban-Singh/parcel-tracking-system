@@ -15,4 +15,4 @@ connection.connect((err) => {
   else console.log("Connected to DB!");
 });
 
-module.exports = connection;
+module.exports = {connection};
