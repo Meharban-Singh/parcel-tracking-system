@@ -28,3 +28,7 @@ article {
 .demo {
   color: #333333;
 }
+
+.active {
+  font-style: italic;
+}
