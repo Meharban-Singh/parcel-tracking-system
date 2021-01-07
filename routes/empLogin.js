@@ -34,13 +34,12 @@ router.post("/empLogin", (req, res) => {
       [username, password],
       async function (error, results) {
         if(!results){
-          res.send("Did not find anything!")
+          res.send("No account exists for that username!");
         }
         else{
           if(results.length>0)
           {
-            res.send("hey there, you've logged in!");
-            //res.redirect("/home");
+            res.redirect("/home");
           }
           else{
             res.status(401).render("error", {
