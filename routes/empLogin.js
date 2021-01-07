@@ -6,6 +6,8 @@ const { validateEmailAddress } = require("../modules/validation.js");
 //employee login handle
 router.get('/empLogin',(req,res)=>{
     var username = req.body.username;
+    //req.body.username; //working on it, always returns null
+
     var password = req.body.password;
 
     //check if username is entered
