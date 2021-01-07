@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { validateTrackingNumber } = require("../modules/validation");
+const { connection } = require("../modules/connection.js");
 
 // GET parcel information
 router.get("/parcel", (req, res) => {
@@ -9,6 +10,8 @@ router.get("/parcel", (req, res) => {
       code: "404",
       message: "No tracking number provided!",
     });
+
+  req.query.trackingNumber = req.query.trackingNumber.trim();
 
   // Validation of input
   if (!validateTrackingNumber(req.query.trackingNumber))
@@ -37,7 +40,22 @@ router.get("/parcel", (req, res) => {
     maxAge: "604800000", // Cookie expires after 1 week.
   });
 
-  res.status(200).render("");
+  // Search for the entered parcel
+  connection.query(
+    "SELECT * FROM parcel WHERE trackingNumber = ?",
+    [req.query.trackingNumber],
+    async (error, results) => {
+      if (error || !results)
+        return res.status(404).render("index", {
+          numbers,
+          error_message:
+            "Tracking number not found! Please double-check the number. Contact support if error persists.",
+        });
+
+      console.log(results);
+      res.status(200).render("parcelDetails", {});
+    }
+  );
 });
 
 module.exports = router;

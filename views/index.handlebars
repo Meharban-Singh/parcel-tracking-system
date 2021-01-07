@@ -29,7 +29,12 @@
             <input type="submit" value="Track"/>
             <input type="reset" value="Reset"/>
         </form>
-    
+        
+        {{!-- If an error is found, render it --}}
+        {{#if error_message}}
+            <span style="color: red; font-size: 12px; font-weight: bold">{{error_message}}</span>
+        {{/if}}
+        
         <br />
         <br />
 
