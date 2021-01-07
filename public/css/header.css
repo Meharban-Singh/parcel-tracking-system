@@ -1,0 +1,16 @@
+header {
+  background-color: white;
+  text-align: justify;
+  font-size: 32px;
+  color: #beab72;
+  padding: 50px;
+
+  border-style: solid;
+  border-color: #111111;
+}
+
+img#logo {
+  float: left;
+  width: 90px;
+  height: 90px;
+}
