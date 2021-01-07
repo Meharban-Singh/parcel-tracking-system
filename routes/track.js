@@ -19,6 +19,14 @@ router.get("/parcel", (req, res) => {
 
   // Add the new number to the cookies
   let numbers = req.cookies.numbers || [];
+
+  // If the number is already in the array, remove it from the array
+  let index = numbers.indexOf(req.query.trackingNumber);
+  if (index > -1) {
+    numbers.splice(index, 1); //remove that element
+  }
+
+  // Add new number to the top of the array
   numbers.unshift(req.query.trackingNumber);
 
   // If more than 10 numbers are stored, delete them. We only store 10 most recent numbers
