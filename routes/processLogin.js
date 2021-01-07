@@ -7,27 +7,27 @@ router.post("/processLogin", (req, res) => {
   //get values of username and password entered by user
   var username = req.body.username;
   var password = req.body.password;
-  var stay_signed_in = req.body.stay_signed_in;
+  var signIn = req.body.stay_signed_in;
 
   //testing to check values -- delete later
-  console.log(username, password, stay_signed_in);
+  console.log(username, password, signIn);
 
   //check if username is entered
   if (!username)
-    return res.status(404).render("error", {
+    return res.status(401).render("error", {
       code: "404",
       message: "No username provided!",
     });
   //check if password is entered
   else if (!password)
-    return res.status(404).render("error", {
-      code: "404",
+    return res.status(401).render("error", {
+      code: "401",
       message: "No password provided!",
     });
   //validate email address
   else if (!validateEmailAddress(req.body.username))
     return res.status(400).render("error", {
-      code: "400",
+      code: "401",
       message: "Invalid email address!",
     });
   //if both values entered, check values in DB
