@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-//login handle
+//admin handler
 router.get('/admin',(req,res)=>{
     res.status(200).render("admin");
 })
