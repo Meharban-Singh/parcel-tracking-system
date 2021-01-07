@@ -1,53 +1,56 @@
 <link rel="stylesheet" href="css/index.css">
 
+{{!-- Header section with logo --}}
 <header>
     <img id="logo" src="images/logo.jpg">
     <h2><span style="color:#333333">Del</span><span style="color:#BeaB72; font-weight:bold;">Com</span>
     </h2>
-   </header>
+</header>
 
-
-   <section>
-		<nav>
-		 <ul>
-		  <li><a href="index.handlebars" class="active">Home</a></li>
-		  <li><a href="login.handlebars">Login</a></li>
-		  <li><a href="track.handlebars">Track your order</a></li>
+<section>
+    {{!-- Navbar with links to home page and login page --}}
+    <nav>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/login">Login</a></li>
         </ul>
-		</nav>
+    </nav>
   
-	   <article style="padding:20px; font:40px;">
-			<form action="/loginpage" method="GET">
-    <input type="submit" value="Employee Login Page">
-</form>
-<form action="/parcel" method="GET">
-    <label for="trackingTF">Tracking Number</label>
-    <input 
-        type="text" 
-        name="trackingNumber" 
-        pattern="[A-Za-z0-9]{16} +" 
-        title="Tracking number should be 16 characters long" 
-        placeholder="Enter tracking number" 
-        autofocus
-    />
-    
-    <input type="submit" value="Track"/>
-    <input type="reset" value="Reset"/>
-</form>
-	   </article>
-   </section>
+   <article style="padding:20px; font:40px;">
+        {{!-- Employee login button form --}}
+        <a href="/login">Employee Login Page</a>
+        
+        {{!--  Tracking number form  --}}
+        <form action="/parcel" method="GET">
+            <label for="trackingTF">Tracking Number</label>
+            <input 
+                type="text" 
+                name="trackingNumber" 
+                pattern="[A-Za-z0-9]{16} +" 
+                title="Tracking number should be 16 characters long" 
+                placeholder="Enter tracking number" 
+                autofocus
+            />
 
-   <footer>
-    <table  border="0" width="100%" bgcolor=#333 height="10%" padding-up="100px";>     
-       
-       <tr>
-      <td align="center"><font color="white"><font size="3px">Designed by -Meharban, Ace, Ridhi, Preet</td>
-       </tr>
-       <tr>
-      <td align="center"> <font color="white"><font size="3px"><a href="#top">Return to the top of the page. </a></td>
-       </tr>
-       <tr>
-      <td  align="center"><font color="white"><font size="3px"> &copy:2021 All rights reserved .</td>
-     </tr>
+            <input type="submit" value="Track"/>
+            <input type="reset" value="Reset"/>
+        </form>
+    </article>
+</section>
+
+{{!-- Footer --}}
+<footer>
+    <table  border="0" width="100%" bgcolor=#333 height="10%" padding-up="100px";>
+        <tr>
+            <td align="center"><font color="white"><font size="3px">Designed by -Meharban, Ace, Ridhi, Preet</td>
+        </tr>
+        
+        <tr>
+            <td align="center"> <font color="white"><font size="3px"><a href="#top">Return to the top of the page. </a></td>
+        </tr>
+
+        <tr>
+            <td  align="center"><font color="white"><font size="3px"> &copy:2021 All rights reserved .</td>
+        </tr>
     </table>
-   </footer>
+</footer>
