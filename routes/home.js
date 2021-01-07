@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-//login handle
+//home handle - opens employee homepage
 router.get('/home',(req,res)=>{
     res.status(200).render("employeeHome");
 })
