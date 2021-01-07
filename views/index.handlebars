@@ -22,7 +22,7 @@
             <input 
                 type="text" 
                 name="trackingNumber" 
-                pattern="[A-Za-z0-9]{16} +" 
+                pattern="[A-Za-z0-9]{16}" 
                 title="Tracking number should be 16 characters long" 
                 placeholder="Enter tracking number" 
                 autofocus
@@ -31,7 +31,23 @@
             <input type="submit" value="Track"/>
             <input type="reset" value="Reset"/>
         </form>
+    
+        <br />
+        <br />
+
+        {{! Display recent Tracking numbers }}
+        {{#if numbers}}
+            <div id="recents-container">
+                <h4>Recent Numbers:</h4>
+                <ul>
+                    {{#each numbers}}
+                    <li><a href="/parcel?trackingNumber={{this}}">{{this}}</a></li>  
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
     </article>
+
 </section>
 
 {{!-- Footer --}}
