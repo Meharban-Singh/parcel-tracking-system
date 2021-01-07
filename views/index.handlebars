@@ -1,6 +1,23 @@
-<link rel="stylesheet" href="css/homepage.css">
+<link rel="stylesheet" href="css/index.css">
 
-<form action="/loginpage" method="GET">
+<header>
+    <img id="logo" src="images/logo.jpg">
+    <h2><span style="color:#333333">Del</span><span style="color:#BeaB72; font-weight:bold;">Com</span>
+    </h2>
+   </header>
+
+
+   <section>
+		<nav>
+		 <ul>
+		  <li><a href="index.handlebars" class="active">Home</a></li>
+		  <li><a href="login.handlebars">Login</a></li>
+		  <li><a href="track.handlebars">Track your order</a></li>
+        </ul>
+		</nav>
+  
+	   <article style="padding:20px; font:40px;">
+			<form action="/loginpage" method="GET">
     <input type="submit" value="Employee Login Page">
 </form>
 <form action="/parcel" method="GET">
@@ -17,17 +34,20 @@
     <input type="submit" value="Track"/>
     <input type="reset" value="Reset"/>
 </form>
+	   </article>
+   </section>
 
-{{! Display recent Tracking numbers }}
-{{#if numbers}}
-    <div id="recents-container">
-        <h3>Recent Numbers:</h3>
-        <ul>
-            {{#each numbers}}
-                <li>
-                    <a href="/parcel?trackingNumber={{this}}">{{this}}</a>
-                </li>  
-            {{/each}}
-        </ul>
-    </div>
-{{/if}}
+   <footer>
+    <table  border="0" width="100%" bgcolor=#333 height="10%" padding-up="100px";>     
+       
+       <tr>
+      <td align="center"><font color="white"><font size="3px">Designed by -Meharban, Ace, Ridhi, Preet</td>
+       </tr>
+       <tr>
+      <td align="center"> <font color="white"><font size="3px"><a href="#top">Return to the top of the page. </a></td>
+       </tr>
+       <tr>
+      <td  align="center"><font color="white"><font size="3px"> &copy:2021 All rights reserved .</td>
+     </tr>
+    </table>
+   </footer>
