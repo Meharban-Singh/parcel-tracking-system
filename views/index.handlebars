@@ -6,6 +6,7 @@
     </h2>
    </header>
 
+
    <section>
 		<nav>
 		 <ul>
@@ -16,7 +17,23 @@
 		</nav>
   
 	   <article style="padding:20px; font:40px;">
-			 Content
+			<form action="/loginpage" method="GET">
+    <input type="submit" value="Employee Login Page">
+</form>
+<form action="/parcel" method="GET">
+    <label for="trackingTF">Tracking Number</label>
+    <input 
+        type="text" 
+        name="trackingNumber" 
+        pattern="[A-Za-z0-9]{16} +" 
+        title="Tracking number should be 16 characters long" 
+        placeholder="Enter tracking number" 
+        autofocus
+    />
+    
+    <input type="submit" value="Track"/>
+    <input type="reset" value="Reset"/>
+</form>
 	   </article>
    </section>
 

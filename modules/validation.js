@@ -38,7 +38,9 @@ function validateEmailAddress(email) {
   email = email.trim();
 
   let regex = /\S+@\S+\.\S+/; //string@string.string
+  console.log("here");
   if (email.match(regex)) return true;
+  console.log("here not");
 
   return false;
 }

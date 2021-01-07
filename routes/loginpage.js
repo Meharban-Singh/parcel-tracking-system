@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-//login handle
-router.get('/login',(req,res)=>{
+//loginpage handler
+router.get('/loginpage',(req,res)=>{
     res.status(200).render("login");
 })
 
