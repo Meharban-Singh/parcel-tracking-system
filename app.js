@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
+const hbs = require("express-handlebars").create();
 
 app.set("PORT", process.env.PORT || 3000);
 
 // Handlebars engine and extension
-app.engine("handlebars", exphbs());
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Use statc files
