@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { connection } = require("../modules/connection.js");
 const { validateEmailAddress } = require("../modules/validation.js");
 const bcrypt = require("bcrypt"); // to hash the password
-const saltRounds = 10;
 
 //login handler
 router.get("/login", (req, res) => {
