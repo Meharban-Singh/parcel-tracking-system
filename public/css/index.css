@@ -32,3 +32,9 @@ article {
 .active {
   font-style: italic;
 }
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+}

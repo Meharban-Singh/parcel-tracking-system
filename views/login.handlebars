@@ -14,20 +14,24 @@
    
     <article style="padding:20px; font:40px;">
    
-        <h1>Login for existing account</h1>
+        <h1>Login</h1>
 
         <form action="/processLogin" method="POST">
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Enter username here">
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="Enter email here">
             <br><br>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Enter password here">
             <br><br>
-            <input type="checkbox" name="stay_signed_in" value="true">
+            <input type="checkbox" name="stay_signed_in" checked>
             <label for="stay_signed_in">Stay signed in?</label>
             <br><br>
             <input type="submit" value="Login">
         </form>
+
+        {{#if error_message}}
+            <span class="error-message">{{error_message}}</span>
+        {{/if}}
 
     </article>
 </section>
