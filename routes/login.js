@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { connection } = require("../modules/connection.js");
 const { validateEmailAddress } = require("../modules/validation.js");
 const bcrypt = require("bcrypt"); // to hash the password
+const saltRounds = 10;
 
 //login handler
 router.get("/login", (req, res) => {
@@ -11,8 +12,8 @@ router.get("/login", (req, res) => {
 //employee login handle
 router.post("/processLogin", (req, res) => {
   //get values of email and password entered by user
-  let email = req.body.email.toLowerCase();
-  let password = req.body.password;
+  let email = req.body.email.trim().toLowerCase();
+  let password = req.body.password.trim();
   let signIn = req.body.stay_signed_in;
 
   //check if email is entered
@@ -55,9 +56,16 @@ router.post("/processLogin", (req, res) => {
                 message: "Something went wrong!",
               });
             }
+
             if (result) {
-              // TODO: add redirection Correct!
-              res.status(202).redirect("/");
+              // Correct!
+              if (results[0].role == 1) {
+                // redirect to admin page
+                res.status(202).redirect("/admin");
+              } else {
+                //redirect to /employee
+                res.status(202).redirect("/employee/parcels");
+              }
             } else {
               // password is incorrect
               res.status(200).render("login", {
