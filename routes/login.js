@@ -2,6 +2,11 @@ const router = require("express").Router();
 const { connection } = require("../modules/connection.js");
 const { validateEmailAddress } = require("../modules/validation.js");
 
+//login handler
+router.get("/login", (req, res) => {
+  res.status(200).render("login");
+});
+
 //employee login handle
 router.post("/processLogin", (req, res) => {
   //get values of username and password entered by user
