@@ -10,11 +10,6 @@ router.get("/employee/parcels",(req,res)=>{
     res.status(200).render("employeeHome");
 })
 
-//parcel list handler -- admin/parcels
-router.get("/admin/myParcels",(req,res)=>{
-    res.status(200).render("adminparcels");
-})
-
 //open registration page
 router.get("/admin/register",(req,res)=>{
     res.status(200).render("register");
