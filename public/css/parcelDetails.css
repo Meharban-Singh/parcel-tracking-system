@@ -1,0 +1,23 @@
+.table {
+  width: 60%;
+  color: darkslategray;
+  margin: 20px;
+}
+
+.table td {
+  text-align: center;
+  padding: 20px;
+}
+
+.date {
+  font-weight: bold;
+}
+
+hr {
+  margin: 40px auto;
+  border: 0;
+  height: 0;
+  width: 70%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
