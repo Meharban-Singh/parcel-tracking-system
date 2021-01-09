@@ -56,6 +56,7 @@ router.post("/processLogin", (req, res) => {
               });
             }
 
+            // TODO: Check stay_sign_in
             if (result) {
               // Correct!
               if (results[0].role == 1) {
