@@ -128,7 +128,6 @@ router.get("/parcel", (req, res) => {
         //cAdd deliveries to the context object
         contextObject.deliveries = deliveries;
 
-        console.log(contextObject);
         res.status(200).render("parcelDetails", contextObject);
       }
     }

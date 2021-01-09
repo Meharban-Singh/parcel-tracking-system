@@ -1,1 +1,69 @@
-<h1>Parcel details will be listed here.</h1>
+<link rel="stylesheet" href="css/parcelDetails.css">
+{{!-- Header --}}
+{{> header}}
+
+{{!-- Content --}}
+<section>
+
+    <div class="my-5 mx-auto" style="width: 70%; text-align:center">
+        <div class="row">
+            <div class="col-sm">
+                 <div class="mx-auto card text-white bg-primary mb-3" style="max-width: 30rem;">
+                    <div class="card-header">Tracking Number</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ trackingNumber }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mx-auto card text-white bg-primary mb-3" style="max-width: 30rem;">
+                    <div class="card-header">Customer</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ customerName }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <div class="mx-auto card text-white bg-success mb-3" style="max-width: 30rem;">
+                    <div class="card-header">Source</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sourceLocation }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mx-auto card text-white bg-success mb-3" style="max-width: 30rem;">
+                    <div class="card-header">Destination</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ destinationLocation }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Delivery details --}}
+    {{#each deliveries}}
+        <table class="table-hover mx-auto table">
+            <tr><td class="table-dark date" colspan="3">{{ this.date}}</td></tr>
+
+            {{#each this.details}}
+                <tr>
+                    <td class="time">{{ this.time }}</td>
+                    <td class="status">
+                        <span>{{ this.status }}</span> <br />
+                        <span>{{ this.currentCity }}, {{ this.currentProvince }}</span>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+
+        <hr />
+    {{/each}}
+</section>
+
+{{!-- Footer --}}
+{{> footer}}
