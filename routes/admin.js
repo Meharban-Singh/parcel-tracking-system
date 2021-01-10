@@ -42,48 +42,32 @@ router.post("/admin/processRegistration", (req,res)=>{
         return res.status(400).render("register", {
             error_message: "No first name provided!",
         });
-    }
-
-    //check if user entered last name
+    }//check if user entered last name
     else if(!lname){
-        console.log("lname entry")
         return res.status(400).render("register", {
             error_message: "No last name provided!"
         });
-    }
-
-    //check if user entered email address
+    }//check if user entered email address
     else if(!email){
-        console.log("email entry")
         return res.status(400).render("register",{
             error_message: "No email address provided!"
         });
-    }
-
-    //check is email is valid
+    }//check is email is valid
     else if(!validateEmailAddress(email)){
-        console.log("email valid entry")
         return res.status(400).render("register",{
             error_message: "Invalid email address."
         })
-    }
-    //check if password is entered
+    }//check if password is entered
     else if(!req.body.password){
-        console.log("pass entry")
         return res.status(400).render("register",{
             error_message: "No password provided!"
         });
-    }
-    
-    //check if password is valid
+    } //check if password is valid
     else if(!validatePassword(req.body.password)){
-        console.log("pass valid entry")
-        console.log(req.body.password);
         return res.status(400).render("register",{
             error_message: "Password must be 8-16 characters long, and have at least one Uppercase, one lowercase, one symbol and one digit."
         })
     }
-
     else{
         //check id account with given email already exists
         connection.query(
@@ -96,13 +80,13 @@ router.post("/admin/processRegistration", (req,res)=>{
                         code: "500",
                         message: "Something went wrong, please try again!"
                     })
-                }
-                else if(results.length>0){
+                }else if(results.length>0){
                     res.status(400).render("register",{
                         error_message: "An account with this email address already exists."
                     })
-                }
+                }//if not prior account exist, create new one
                 else{
+                    //hash the password
                     let password;
                     bcrypt.hash(req.body.password,SALT_ROUNDS, function(err,hash){
                         if(err){
@@ -111,7 +95,7 @@ router.post("/admin/processRegistration", (req,res)=>{
                             })
                         }else{
                             password=hash;
-                            console.log("1:",password);
+                            //insert new emp info into DB
                             connection.query(
                                 "INSERT INTO employee (fname, lname, email, password) VALUES (?, ?, ?, ?)",
                                 [fname, lname, email, password],
@@ -120,8 +104,7 @@ router.post("/admin/processRegistration", (req,res)=>{
                                         res.status(400).render("register",{
                                             error_message: "Processing error, please try again!"
                                         })
-                                    }
-                                    else{
+                                    }else{
                                         res.status(200).render("register",{
                                             message: "Registration successful!"
                                         })
@@ -129,9 +112,7 @@ router.post("/admin/processRegistration", (req,res)=>{
                                 }
                             )
                         }
-                    })
-                    console.log("2:",password)
-                    
+                    })                    
                 }
         })
     }
