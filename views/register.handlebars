@@ -6,18 +6,21 @@
 <section>
     <article style="padding:20px; font:40px;">
         <h1>Registration Form</h1>
-        <div style="width: 50%; height:100%; float:left; align-content:right">
-            <label for="fname">First Name</label> <br><br>
-            <label for="lname">Last Name</label> <br><br>
-            <label for="email">Email</label> <br><br>
-            <label for="password">password</label> <br><br>
-        </div>
-        <div style="width: 50%; height:100%; float:right; align-content:left">
-            <input type="text" name="fname"> <br><br>
-            <input type="text" name="lname"> <br><br>
-            <input type="email" name="email"> <br><br>
-            <input type="password" name="password"> <br><br>
-        </div>
+        <form action="admin/processRegistration" method="POST">
+            <div style="width: 50%; height:100%; float:left; align-content:right">
+                <label for="fname">First Name</label> <br><br>
+                <label for="lname">Last Name</label> <br><br>
+                <label for="email">Email</label> <br><br>
+                <label for="password">password</label> <br><br>
+            </div>
+            <div style="width: 50%; height:100%; float:right; align-content:left">
+                <input type="text" name="fname"> <br><br>
+                <input type="text" name="lname"> <br><br>
+                <input type="email" name="email"> <br><br>
+                <input type="password" name="password"> <br><br>
+            </div>
+            <input type="submit" value="Register">
+        </form>
     </article>
 </section>
 
