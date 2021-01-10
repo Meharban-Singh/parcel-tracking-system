@@ -1,5 +1,35 @@
-<link rel="stylesheet" href="css/index.css">
+{{!-- <link rel="stylesheet" href="css/index2.css"> --}}
 
+<style>
+    article {
+    text-align: center;
+    background-color: #f9f9f4;
+    height: 500px;
+    padding-left: 10%;
+  }
+  
+  .center {
+    display: block;
+    margin-left: 40%;
+    margin-right: 60%;
+    margin-top: 10px;
+  }
+  
+  .demo {
+    color: #333333;
+  }
+  
+  .active {
+    font-style: italic;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+</style>
 {{!-- Header section with logo --}}
 {{> adminHeader}}
 
@@ -21,6 +51,9 @@
             </div>
             <input type="submit" value="Register">
         </form>
+         {{#if error_message}}
+            <span class="error-message">{{error_message}}</span>
+        {{/if}}
     </article>
 </section>
 
