@@ -38,6 +38,7 @@ router.post("/admin/processRegistration", (req,res)=>{
 
     //check if user entered first name
     if(!fname){
+        console.log("fname entry")
         return res.status(400).render("register", {
             error_message: "No first name provided!",
         });
@@ -45,6 +46,7 @@ router.post("/admin/processRegistration", (req,res)=>{
 
     //check if user entered last name
     else if(!lname){
+        console.log("lname entry")
         return res.status(400).render("register", {
             error_message: "No last name provided!"
         });
@@ -52,6 +54,7 @@ router.post("/admin/processRegistration", (req,res)=>{
 
     //check if user entered email address
     else if(!email){
+        console.log("email entry")
         return res.status(400).render("register",{
             error_message: "No email address provided!"
         });
@@ -59,12 +62,14 @@ router.post("/admin/processRegistration", (req,res)=>{
 
     //check is email is valid
     else if(!validateEmailAddress(email)){
-        returnres.status(400).render("register",{
+        console.log("email valid entry")
+        return res.status(400).render("register",{
             error_message: "Invalid email address."
         })
     }
     //check if password is entered
     else if(!req.body.password){
+        console.log("pass entry")
         return res.status(400).render("register",{
             error_message: "No password provided!"
         });
@@ -72,6 +77,8 @@ router.post("/admin/processRegistration", (req,res)=>{
     
     //check if password is valid
     else if(!validatePassword(req.body.password)){
+        console.log("pass valid entry")
+        console.log(req.body.password);
         return res.status(400).render("register",{
             error_message: "Password must be 8-16 characters long, and have at least one Uppercase, one lowercase, one symbol and one digit."
         })
@@ -96,31 +103,35 @@ router.post("/admin/processRegistration", (req,res)=>{
                     })
                 }
                 else{
+                    let password;
                     bcrypt.hash(req.body.password,SALT_ROUNDS, function(err,hash){
                         if(err){
                             res.status(400).render("register",{
                                 error_message: "An error occured, please try again!"
                             })
                         }else{
-                            let password=hash;
+                            password=hash;
+                            console.log("1:",password);
+                            connection.query(
+                                "INSERT INTO employee (fname, lname, email, password) VALUES (?, ?, ?, ?)",
+                                [fname, lname, email, password],
+                                async function(errors, result){
+                                    if(errors){
+                                        res.status(400).render("register",{
+                                            error_message: "Processing error, please try again!"
+                                        })
+                                    }
+                                    else{
+                                        res.status(200).render("register",{
+                                            message: "Registration successful!"
+                                        })
+                                    }
+                                }
+                            )
                         }
                     })
-                    connection.query(
-                        "INSERT INTO employee (fname, lname, email, password) VALUES (?, ?, ?, ?)",
-                        [fname, lname, email, password],
-                        async function(errors, result){
-                            if(errors){
-                                res.status(400).render("register",{
-                                    error_message: "Processing error, please try again!"
-                                })
-                            }
-                            else{
-                                res.status(200).render("register",{
-                                    message: "Registration successful!"
-                                })
-                            }
-                        }
-                    )
+                    console.log("2:",password)
+                    
                 }
         })
     }
