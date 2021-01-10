@@ -20,4 +20,9 @@ router.get("/admin/employeeinfo",(req,res)=>{
     res.status(200).render("admininfo");
 })
 
+//open admin personal information
+router.get("/admin/addparcel",(req,res)=>{
+    res.status(200).render("addParcel");
+})
+
 module.exports = router;
