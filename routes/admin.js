@@ -38,7 +38,6 @@ router.post("/admin/processRegistration", (req,res)=>{
 
     //check if user entered first name
     if(!fname){
-        console.log("fname entry")
         return res.status(400).render("register", {
             error_message: "No first name provided!",
         });
@@ -117,6 +116,65 @@ router.post("/admin/processRegistration", (req,res)=>{
         })
     }
    
+})
+
+//add parcel handler
+router.post("/admin/processparcel", (req,res)=>{
+    //get values entered by user
+    let fname = req.body.fname;
+    let lname = req.body.lname;
+    let sourceStreet = req.body.sourceStreet;
+    let sourceCity = req.body.sourceCity;
+    let sourceProvince = req.body.sourceProvince;
+    let sourcePostalCode = req.body.sourcePostalCode;
+    let destStreet = req.body.destStreet;
+    let destCity = req.body.destCity;
+    let destProvince = req.body.destProvince;
+    let destPostalCode = req.body.destPostalCode;
+    let employee = req.body.employee;
+
+    //check if all values are entered
+    if(!fname){
+        return res.status(400).render("addParcel", {
+            error_message: "No first name provided!",
+        });
+    }else if(!lname){
+        return res.status(400).render("addParcel", {
+            error_message: "No last name provided!",
+        });
+    }else if(!sourceStreet){
+        return res.status(400).render("addParcel", {
+            error_message: "Street address for source location is required!",
+        });
+    }else if(!sourceCity){
+        return res.status(400).render("addParcel", {
+            error_message: "City for source location is required!",
+        });
+    }else if(!sourceProvince){
+        return res.status(400).render("addParcel", {
+            error_message: "Province for source location is required!",
+        });
+    }else if(!sourcePostalCode){
+        return res.status(400).render("addParcel", {
+            error_message: "PostalCode for source location is required!",
+        });
+    }else if(!destStreet){
+        return res.status(400).render("addParcel", {
+            error_message: "Street address for destination location is required!",
+        });
+    }else if(!destCity){
+        return res.status(400).render("addParcel", {
+            error_message: "City for destination location is required!",
+        });
+    }else if(!destProvince){
+        return res.status(400).render("addParcel", {
+            error_message: "Province for destination location is required!",
+        });
+    }else if(!destPostalCode){
+        return res.status(400).render("addParcel", {
+            error_message: "PostalCode for destination location is required!",
+        })
+    }
 })
 
 module.exports = router;
