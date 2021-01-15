@@ -1,24 +1,99 @@
 <link rel="stylesheet" href="css/index.css">
-
+<style>
+    .left{
+        float: left;
+        width: 40%;
+        height: 100%;
+        text-align: right;
+    }
+    .right{
+        float: right;
+        width: 50%;
+        height: 100%;
+    }
+    article {
+    text-align: center;
+    background-color: #f9f9f4;
+    padding-left: 10%;
+  }
+  
+  .center {
+    display: block;
+    margin-left: 40%;
+    margin-right: 60%;
+    margin-top: 10px;
+  }
+  
+  .demo {
+    color: #333333;
+  }
+  
+  .active {
+    font-style: italic;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+</style>
 {{!-- Header section with logo --}}
 {{> adminHeader}}
 
 <section>
     <article style="padding:20px; font:40px;">
         <h1>Add Parcel Form</h1>
-        <div style="width: 50%; height:100%; float:left">
-            <label for="customer">Customer Name</label><br><br>
-            <label for="source">Source Location</label><br><br>
-            <label for="destination">Destination Location</label><br><br>
-            <label for="employee">Employee Id</label><br><br>
-        </div>
-        <div style="width: 50%; height:100%; float:right">
-            <input type="text" name="cutomer"><br><br>
-            <input type="text" name="source"><br><br>
-            <input type="text" name="source"><br><br>
-            <input type="text" name="employee"><br><br>
-        </div>
+        <form action="/admin/processparcel" method="POST">
+            <label for="fname" class="left">Customer First Name</label>
+            <input type="text" name="fname" class="right">
+            <br><br>
+            <label for="lname" class="left">Customer Last Name</label>
+            <input type="text" name="lname" class="right">
+            <br><br>
+            <label for="source" class="left">Source Location:</label>
+            <br><br>
+            <label for="sourceStreet" class="left">Street Address</label>
+            <input type="text" name="sourceStreet" class="right">
+            <br><br>
+            <label for="sourceCity" class="left">City</label>
+            <input type="text" name="sourceCity" class="right">
+            <br><br>
+            <label for="sourceProvince" class="left">Province</label>
+            <input type="text" name="sourceProvince" class="right">
+            <br><br>
+            <label for="sourcePostalCode" class="left">Postal Code</label>
+            <input type="text" name="sourcePostalCode" class="right">
+            <br><br>
+            <label for="destination" class="left">Destination Location:</label>
+            <br><br>
+            <label for="destStreet" class="left">Street Address:</label>
+            <input type="text" name="destStreet" class="right">
+            <br><br>
+            <label for="destCity" class="left">City</label>
+            <input type="text" name="destCity" class="right">
+            <br><br>
+            <label for="destProvince" class="left">Province</label>
+            <input type="text" name="destProvince" class="right">
+            <br><br>
+            <label for="destPostalCode" class="left">Postal Code</label>
+            <input type="text" name="destPostalCode" class="right">
+            <br><br>
+            <input type="submit" value="Add parcel" class="right" style="padding: 10px;">
+        </form>
+        <br><br>
     </article>
+    {{!-- display error messages --}}
+    {{#if error_message}}
+      <span class="error-message">{{error_message}}</span>
+    {{/if}}
+
+    {{!-- display any other message --}}
+    {{#if message}}
+      <span style="color: green; font-size:12px; font-weight:bold">{{message}}</span>
+    {{/if}}
+    <br><br>
 </section>
 
 {{!-- Footer --}}
