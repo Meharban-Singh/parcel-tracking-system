@@ -52,9 +52,18 @@
             </div>
             <input type="submit" value="Register">
         </form>
-         {{#if error_message}}
-            <span class="error-message">{{error_message}}</span>
+        <br><br>
+
+        {{!-- display error messages --}}
+        {{#if error_message}}
+          <span class="error-message">{{error_message}}</span>
         {{/if}}
+
+        {{!-- display any other message --}}
+        {{#if message}}
+          <span style="color: green; font-size:12px; font-weight:bold">{{message}}</span>
+        {{/if}}
+        <br><br>
     </article>
 </section>
 
