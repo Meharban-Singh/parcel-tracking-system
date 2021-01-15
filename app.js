@@ -28,7 +28,6 @@ app.use(require("./routes/index")); // GET /
 app.use(require("./routes/login")); // GET /login,  POST /processLogin
 app.use(require("./routes/admin"));
 app.use(require("./routes/track")); // GET /parcel
-app.use(require("./routes/register"));
 app.use(require("./routes/error")); // this MUST be the last middleware so that ir handles all 'other' routes
 
 // Start the server
