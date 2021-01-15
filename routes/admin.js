@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { connection } = require("../modules/connection.js");
 const bcrypt = require("bcrypt"); // to hash the password
-const { validatePassword, validateEmailAddress } = require("../modules/validation.js");
+const { validatePassword, validateEmailAddress, validateAddress } = require("../modules/validation.js");
 const SALT_ROUNDS = 10;
 
 //admin handler
@@ -174,7 +174,21 @@ router.post("/admin/processparcel", (req,res)=>{
         return res.status(400).render("addParcel", {
             error_message: "PostalCode for destination location is required!",
         })
+    }//check if all values are valid 
+    else if(!validateAddress(sourceCity, sourceProvince, sourcePostalCode)){
+        return res.status(400).render("addParcel",{
+            error_message: "Invalid source location address!"
+        })
+    }else if(!validateAddress(destCity, destProvince, destPostalCode)){
+        return res.status(400).render("addParcel",{
+            error_message: "Invalid destination location address!"
+        })
+    }//if all input is valid, add to parcel table
+    else{
+        //get current employee's ID
+        connection.query
     }
+
 })
 
 module.exports = router;
